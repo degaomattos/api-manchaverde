@@ -1,0 +1,15 @@
+{
+  "name": "api-mancha",
+  "version": "1.0.0",
+  "description": "api para obter dados para o app-mancha",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Diego Mattos",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mysql": "^2.16.0"
+  }
+}
