@@ -4,14 +4,13 @@ const news = express()
 const bodyParser = require('body-parser');
 const port = 4000; //porta padrão
 var mysql = require('mysql')
+
 news.use(bodyParser.urlencoded({ extended: true }));
 news.use(bodyParser.json());
 const router = express.Router();
-news.set('view engine' , 'ejs');
 
-news.get('/', function(req, res, next) {
-  res.render('login', {message: null});
-});
+router.get('/', (req, res) => res.json({ message: 'Funcionando!' }));
+news.use('/', router);
 
 //inicia o servidor
 news.listen(port);
