@@ -2,7 +2,7 @@ const express = require('express')
 const config = require('./config')
 const news = express()
 const bodyParser = require('body-parser');
-const port = 4000; //porta padrão
+const port = 4000; //porta padr達o
 var mysql = require('mysql')
 
 news.use(bodyParser.urlencoded({ extended: true }));
