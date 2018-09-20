@@ -1,12 +1,15 @@
 const express = require('express')
 const config = require('./config')
+var fs = require('fs');
 var https = require('https');
 var http = require('http');
+var privateKey  = fs.readFileSync('/home/manchaverde/ssl/keys/c03d2_6e685_a4668c56e2f56aea97a11d66a6f96e84.key', 'utf8');
+var certificate = fs.readFileSync('/home/manchaverde/ssl/certs/www_sociomanchaverde_com_br_c03d2_6e685_1569023999_1685d3b3e373db46db188b62466d2915.crt', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
 const news = express()
 const bodyParser = require('body-parser');
 const port = 5000; //porta padr達o
 var mysql = require('mysql')
-var credencials = require('./credenciais.json')
 
 news.use(bodyParser.urlencoded({ extended: true }));
 news.use(bodyParser.json());
