@@ -17,36 +17,36 @@ news.listen(port);
 console.log('API funcionando!');
 
 // Listar todas noticias
-router.get('/app/noticias', (req, res) =>{
+router.get('/manchaverde/app/noticias', (req, res) =>{
     execSQLQuery('SELECT * FROM noticias_app', res);
 })
 
 // Listar galeria
-router.get('/app/galeria', (req, res) =>{
+router.get('/manchaverde/app/galeria', (req, res) =>{
     execSQLQuery('SELECT * FROM galeria_app', res);
 })
 
 // Listar galeria
-router.get('/app/subsedes', (req, res) =>{
+router.get('/manchaverde/app/subsedes', (req, res) =>{
     execSQLQuery('SELECT * FROM subsedes_app', res);
 })
 
 // Listar noticias filtrada
-router.get('/app/noticias/:id?', (req, res) =>{
+router.get('/manchaverde/app/noticias/:id?', (req, res) =>{
     let filter = '';
     if(req.params.id) filter = ' WHERE ID=' + parseInt(req.params.id);
     execSQLQuery('SELECT * FROM noticias_app' + filter, res);
 })
 
 // Listar galeria filtrada
-router.get('/app/galeria/:id?', (req, res) =>{
+router.get('/manchaverde/app/galeria/:id?', (req, res) =>{
     let filter = '';
     if(req.params.id) filter = ' WHERE ID=' + parseInt(req.params.id);
     execSQLQuery('SELECT * FROM galeria_app' + filter, res);
 })
 
 // Listar subsedes filtrada
-router.get('/app/subsedes/:id?', (req, res) =>{
+router.get('/manchaverde/app/subsedes/:id?', (req, res) =>{
     let filter = '';
     if(req.params.id) filter = ' WHERE ID=' + parseInt(req.params.id);
     execSQLQuery('SELECT * FROM subsedes_app' + filter, res);
