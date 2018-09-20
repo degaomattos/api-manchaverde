@@ -1,9 +1,6 @@
 const express = require('express')
 const config = require('./config')
 const news = express()
-var fs = require('fs');
-var http = require('http');
-var https = require('https');
 const bodyParser = require('body-parser');
 const port = 5000; //porta padr達o
 var mysql = require('mysql')
@@ -12,19 +9,9 @@ news.use(bodyParser.urlencoded({ extended: true }));
 news.use(bodyParser.json());
 const router = express.Router();
 
-var privateKey  = fs.readFileSync('/home/manchaverde/ssl/keys/b1175_647eb_0a236e20ba1d2880a2f3e72699ca6d16.key');
-var certificate = fs.readFileSync('/home/manchaverde/ssl/certs/www_sociomanchaverde_com_br_c03d2_6e685_1569023999_1685d3b3e373db46db188b62466d2915.crt');
-
-var credentials = {key: privateKey, cert: certificate};
-
-var httpServer = http.createServer(news);
-var httpsServer = https.createServer(credentials, news);
-
 router.get('/', (req, res) => res.json({ message: 'Funcionando!' }));
 news.use('/', router);
-
-httpServer.listen(8080);
-httpsServer.listen(8443);
+news.listen(port);
 console.log('API funcionando!');
 
 // Listar todas noticias
