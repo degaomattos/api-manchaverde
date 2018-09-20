@@ -6,6 +6,7 @@ const news = express()
 const bodyParser = require('body-parser');
 const port = 5000; //porta padr達o
 var mysql = require('mysql')
+var credencials = require('./credenciais.json')
 
 news.use(bodyParser.urlencoded({ extended: true }));
 news.use(bodyParser.json());
@@ -14,7 +15,7 @@ const router = express.Router();
 router.get('/', (req, res) => res.json({ message: 'Funcionando!' }));
 news.use('/', router);
 http.createServer(news).listen(port);
-https.createServer(news).listen(5500);
+https.createServer(credencials, news).listen(5500);
 console.log('API funcionando!');
 
 // Listar todas noticias
