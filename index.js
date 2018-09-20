@@ -18,7 +18,7 @@ const router = express.Router();
 router.get('/', (req, res) => res.json({ message: 'Funcionando!' }));
 news.use('/', router);
 http.createServer(news).listen(port);
-https.createServer(credencials, news).listen(5500);
+https.createServer(credentials, news).listen(5500);
 console.log('API funcionando!');
 
 // Listar todas noticias
