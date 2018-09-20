@@ -1,5 +1,7 @@
 const express = require('express')
 const config = require('./config')
+var https = require('https');
+var http = require('http');
 const news = express()
 const bodyParser = require('body-parser');
 const port = 5000; //porta padr達o
@@ -11,7 +13,8 @@ const router = express.Router();
 
 router.get('/', (req, res) => res.json({ message: 'Funcionando!' }));
 news.use('/', router);
-news.listen(port);
+http.createServer(news).listen(port);
+https.createServer(news).listen(5500);
 console.log('API funcionando!');
 
 // Listar todas noticias
